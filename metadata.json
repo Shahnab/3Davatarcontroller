@@ -1,0 +1,7 @@
+{
+  "name": "AI Avatar Controller",
+  "description": "Control a 3D character's head and mouth movements in real-time using your webcam and facial tracking. Generate a unique character image with AI to inspire your avatar.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
