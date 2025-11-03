@@ -8,6 +8,12 @@ import GenderSelector from './components/GenderSelector';
 
 type WebcamStatus = 'initializing' | 'ready' | 'error';
 
+// Helper function to get the correct image path for deployment
+const getImagePath = (imageName: string) => {
+  const basePath = import.meta.env.BASE_URL || '/';
+  return `${basePath}image/${imageName}`;
+};
+
 export default function App(): React.ReactElement {
   const [trackingData, setTrackingData] = useState<TrackingData | null>(null);
   const [webcamStatus, setWebcamStatus] = useState<WebcamStatus>('initializing');
@@ -53,7 +59,7 @@ export default function App(): React.ReactElement {
            <div className={`relative w-48 h-48 bg-neutral-900/20 rounded-3xl ${container3DEffectStyle} ${containerInsetStyle}`}>
             <div className="absolute inset-0 rounded-3xl pointer-events-none" style={noiseStyle}></div>
             <img 
-              src={gender === 'male' ? '/image/image1.png' : '/image/image3.png'} 
+              src={gender === 'male' ? getImagePath('image1.png') : getImagePath('image3.png')} 
               className="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto h-[160%] max-w-none object-contain"
               style={{ filter: 'drop-shadow(0px 8px 12px rgba(0,0,0,0.5))' }}
               alt="Avatar Concept" 
